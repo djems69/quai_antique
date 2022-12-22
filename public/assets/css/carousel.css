@@ -2,10 +2,21 @@
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
 
+@import url('https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap');
+
 body {
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
+}
+
+
+/* CUSTOMIZE NAVBAR */
+
+.navbar-brand {
+    color: #ff9b06;
+    font-family: 'Aguafina Script', cursive;
+    font-size: 37px;
 }
 
 
@@ -86,5 +97,20 @@ body {
 @media (min-width: 62em) {
     .featurette-heading {
         margin-top: 7rem;
+    }
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
     }
 }
