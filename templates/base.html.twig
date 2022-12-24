@@ -8,7 +8,6 @@
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
             <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap" rel="stylesheet">
         {% endblock %}
 
@@ -49,6 +48,8 @@
     </header>
 
     <main role="main">
+
+        <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
 
         {% if block ('carousel') is defined %}
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
