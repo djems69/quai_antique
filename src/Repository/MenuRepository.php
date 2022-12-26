@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Classe\Search;
 use App\Entity\Menu;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,6 +20,33 @@ class MenuRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Menu::class);
+    }
+
+    /**
+     * Requête permettant de récupérer les produits en fonction de la recherche utilisateur
+     * @return Menu[]
+     */
+    public function findWithSearch(Search $search)
+    {
+        $query = $this
+            ->createQueryBuilder('m')
+            ->select('c', 'm')
+            ->join('m.category', 'c');
+
+        if (!empty($search->categories)) {
+            $query = $query
+                ->andWhere('c.id IN (:categories)')
+                ->setParameter('categories', $search->categories);
+        }
+
+        if (!empty($search->string)) {
+            $query = $query
+                ->andWhere('m.name LIKE :string')
+                ->setParameter('string', "%($search->string)%");
+        }
+
+        return $query->getQuery()->getResult();
+
     }
 
     public function save(Menu $entity, bool $flush = false): void
