@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ menu.name }}{% endblock %}
+
+{% block content %}
+    
+    <div class="row">
+        <div class="col-md-5">
+            <img src="/uploads/{{ menu.illustration }}" alt="{{ menu.name }}" class="img-fluid">
+        </div>
+        <div class="col-md-7 my-auto">
+            <h3>{{ menu.name }}</h3>
+            <p>{{ menu.subtitle }}</p>
+            <span class="menu-page-price">{{ (menu.price / 100)|number_format(2, ',', '.') }} €</span>
+            <hr>
+            <p>{{ menu.description }}</p>
+        </div>
+    </div>
+    
+
+
+{% endblock %}

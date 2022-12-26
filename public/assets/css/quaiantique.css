@@ -1,20 +1,34 @@
+body {
+    position: relative;
+}
+
 .navbar-item-custom, .navbar-item-custom a {
     color: #fff;
 }
 
 .footer-custom {
     text-align: center;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #dfeaff;
     padding-top: 25px;
 }
 
+.menu-container {
+    margin-bottom: 150px;
+}
+
 .menu-item h5{
     text-transform: uppercase;
     font-size: 15px;
     margin-bottom: 1px;
+    margin-top: 5px;
+}
+
+.menu-item {
+    border: 1px solid;
+    margin-top: 30px;
 }
 
 .menu-item .menu-subtitle {
@@ -25,4 +39,9 @@
 
 .menu-item .menu-price {
     font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-page-price {
+    font-size: 20px;
 }

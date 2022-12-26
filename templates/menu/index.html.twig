@@ -3,18 +3,24 @@
 {% block title %}Menus - Quai Antique{% endblock %}
 
 {% block content %}
-    <h1>Menus</h1>
-
     <div class="row">
-        {% for menu in menus %}
-            <div class="col-md-4">
-                <div class="menu-item text-center">
-                    <img src="/uploads/{{ menu.illustration }}" alt="{{ menu.name }}" class="img-fluid">
-                    <h5>{{ menu.name }}</h5>
-                    <span class="menu-subtitle">{{ menu.subtitle }}</span>
-                    <span class="menu-price">{{ menu.price }}</span>
-                </div>
+        <div class="col-md-3">
+            <h3>Filtrer</h3>
+            {{ form(form) }}
+        </div>
+        <div class="col-md-9">
+            <h3>Nos menus</h3>
+
+            <div class="row menu-container">
+                {% for menu in menus %}
+                    <div class="col-md-4 menu-container">
+                        <div class="menu-item text-center">
+                            <a href="{{ path('nos-menus', { 'slug' : menu.slug }) }}"><img src="/uploads/{{ menu.illustration }}" alt="{{ menu.name }}" class="img-fluid"></a>
+                            <h5>{{ menu.name }}</h5>
+                            <span class="menu-subtitle">{{ menu.subtitle }}</span>
+                            <span class="menu-price">{{ (menu.price / 100)|number_format(2, ',', '.') }} €</span>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-{% endblock %}
+            {% endblock %}
