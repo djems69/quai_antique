@@ -42,7 +42,7 @@ class MenuRepository extends ServiceEntityRepository
         if (!empty($search->string)) {
             $query = $query
                 ->andWhere('m.name LIKE :string')
-                ->setParameter('string', "%($search->string)%");
+                ->setParameter('string', "%{$search->string}%");
         }
 
         return $query->getQuery()->getResult();

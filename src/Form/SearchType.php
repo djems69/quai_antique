@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Form;
 
 use App\Classe\Search;
 use App\Entity\Category;
-use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -17,14 +17,14 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('string', TextType::class, [
-                'label' => 'Rechercher',
+            /*->add('string', TextType::class, [
+                'label' => false,
                 'required' => false,
                 'attr' => [
                     'placeholder' => 'Votre recherche',
                     'class' => 'form-control-sm'
                 ]
-            ])
+            ])*/
             ->add('categories', EntityType::class, [
                 'label' => false,
                 'required' => false,
@@ -33,7 +33,7 @@ class SearchType extends AbstractType
                 'expanded' => true
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Filtrer',
+                'label' => 'Rechercher',
                 'attr' => [
                     'class' => 'bnt-block btn-info'
                 ]
@@ -46,7 +46,6 @@ class SearchType extends AbstractType
             'data_class' => Search::class,
             'method' => 'GET',
             'crsf_protection' => false,
-
         ]);
     }
 
