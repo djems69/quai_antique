@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BookingRepository;
+use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,6 +31,13 @@ class Booking
     #[ORM\Column]
     private ?int $seats = null;
 
+    #[ORM\ManyToOne(inversedBy: 'bookings')]
+    private ?User $Book = null;
+
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,19 +60,19 @@ class Booking
         return $this->hour;
     }
 
-    public function setHour(\DateTimeInterface $hour): self
+    public function setHour(DateTimeInterface $hour): self
     {
         $this->hour = $hour;
 
         return $this;
     }
 
-    public function getDay(): ?\DateTimeInterface
+    public function getDay(): ?DateTimeInterface
     {
         return $this->day;
     }
 
-    public function setDay(\DateTimeInterface $day): self
+    public function setDay(DateTimeInterface $day): self
     {
         $this->day = $day;
 
@@ -90,6 +99,30 @@ class Booking
     public function setSeats(int $seats): self
     {
         $this->seats = $seats;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?DateTimeInterface {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTimeInterface $createdAt) : self {
+
+        $this->createdAt = $createdAt;
+
+        return $this;
+
+    }
+
+    public function getBook(): ?User
+    {
+        return $this->Book;
+    }
+
+    public function setBook(?User $Book): self
+    {
+        $this->Book = $Book;
 
         return $this;
     }

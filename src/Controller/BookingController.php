@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
+use App\Entity\User;
 use App\Form\BookingType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,22 +17,26 @@ class BookingController extends AbstractController
 
     public function __construct(EntityManagerInterface $entityManager) {
         $this->entityManager = $entityManager;
+
     }
 
-    #[Route('/reservations', name: 'app_booking')]
+    #[Route('/reservation', name: 'app_booking')]
     public function index(Request $request): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
+
+
+
         $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $booking = $form->getData();
             $this->entityManager->persist($booking);
             $this->entityManager->flush();
+            $this->addFlash('success', 'Votre réservation a bien été envoyé');
+            return $this->redirectToRoute('home');
         }
-
 
         return $this->render('booking/index.html.twig', [
             'form' => $form

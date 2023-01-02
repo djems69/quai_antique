@@ -32,9 +32,14 @@ class Menu
     #[ORM\Column]
     private ?float $price = null;
 
+
+
     #[ORM\ManyToOne(inversedBy: 'menus')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\Column]
+    private ?bool $isBest = null;
 
     public function getId(): ?int
     {
@@ -121,6 +126,18 @@ class Menu
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function isIsBest(): ?bool
+    {
+        return $this->isBest;
+    }
+
+    public function setIsBest(bool $isBest): self
+    {
+        $this->isBest = $isBest;
 
         return $this;
     }

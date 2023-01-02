@@ -16,6 +16,16 @@
             <p>{{ menu.description }}</p>
         </div>
     </div>
+    <hr>
+    <h3 class="text-center">Nos meilleures ventes</h3>
+    <p class="text-center">Découvrez les produits les plus vendus</p>
+    <div class="row">
+        {% for menu in menus %}
+            <div class="col-md-3">
+                {% include'menu/single_menu.html.twig' %}
+            </div>
+        {% endfor %}
+    </div><!-- /.row -->
     
 
 

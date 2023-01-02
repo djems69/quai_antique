@@ -44,13 +44,16 @@ class MenuController extends AbstractController
         public function show($slug): Response
     {
         $menu = $this->entityManager->getRepository(Menu::class)->findOneBySlug($slug);
+        $menus = $this->entityManager->getRepository(Menu::class)->findByisBest(1);
+
 
         if (!$menu) {
             return $this->redirectToRoute('menus');
         }
 
         return $this->render('menu/show.html.twig', [
-            'menu' => $menu
+            'menu' => $menu,
+            'menus' => $menus
         ]);
     }
 }
