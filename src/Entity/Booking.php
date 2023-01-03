@@ -34,6 +34,9 @@ class Booking
     #[ORM\ManyToOne(inversedBy: 'bookings')]
     private ?User $Book = null;
 
+    #[ORM\ManyToOne(inversedBy: 'bookings')]
+    private ?Restaurant $Management = null;
+
 
 
 
@@ -123,6 +126,18 @@ class Booking
     public function setBook(?User $Book): self
     {
         $this->Book = $Book;
+
+        return $this;
+    }
+
+    public function getManagement(): ?Restaurant
+    {
+        return $this->Management;
+    }
+
+    public function setManagement(?Restaurant $Management): self
+    {
+        $this->Management = $Management;
 
         return $this;
     }
