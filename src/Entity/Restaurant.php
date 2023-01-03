@@ -37,6 +37,9 @@ class Restaurant
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $day = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $days_of_the_week = null;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
@@ -107,6 +110,31 @@ class Restaurant
         return $this;
     }
 
+    public function getDaysOfTheWeek(): ?string
+    {
+        return $this->days_of_the_week;
+    }
+
+    public function setDaysOfTheWeek(string $days_of_the_week): self
+    {
+        $this->days_of_the_week = $days_of_the_week;
+
+        return $this;
+    }
+
+    public function getDay(): ?\DateTimeInterface
+    {
+        return $this->day;
+    }
+
+    public function setDay(\DateTimeInterface $day): self
+    {
+        $this->day = $day;
+
+        return $this;
+    }
+
+
     /**
      * @return Collection<int, Booking>
      */
@@ -137,15 +165,5 @@ class Restaurant
         return $this;
     }
 
-    public function getDay(): ?\DateTimeInterface
-    {
-        return $this->day;
-    }
 
-    public function setDay(\DateTimeInterface $day): self
-    {
-        $this->day = $day;
-
-        return $this;
-    }
 }
