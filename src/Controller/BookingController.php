@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Booking;
-use App\Entity\User;
 use App\Form\BookingType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
