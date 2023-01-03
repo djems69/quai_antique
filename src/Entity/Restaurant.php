@@ -34,6 +34,9 @@ class Restaurant
     #[ORM\OneToMany(mappedBy: 'Management', targetEntity: Booking::class)]
     private Collection $bookings;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $day = null;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
@@ -130,6 +133,18 @@ class Restaurant
                 $booking->setManagement(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDay(): ?\DateTimeInterface
+    {
+        return $this->day;
+    }
+
+    public function setDay(\DateTimeInterface $day): self
+    {
+        $this->day = $day;
 
         return $this;
     }

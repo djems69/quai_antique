@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Booking;
 use App\Entity\Category;
 use App\Entity\Menu;
+use App\Entity\Restaurant;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -49,5 +50,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fas fa-list', Category::class);
         yield MenuItem::linkToCrud('Menus', 'fas fa-tag', Menu::class);
         yield MenuItem::linkToCrud('Booking', 'fas fa-utensils', Booking::class);
+        yield MenuItem::linkToCrud('Restaurant', 'fas fa-utensils', Restaurant::class);
     }
 }
