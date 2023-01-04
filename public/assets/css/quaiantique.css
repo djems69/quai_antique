@@ -1,5 +1,7 @@
 body {
     position: relative;
+    background: rgb(39,40,45);
+    background: radial-gradient(circle, rgba(39,40,45,1) 0%, rgba(92,69,69,1) 100%);
 }
 
 .navbar-item-custom, .navbar-item-custom a {
@@ -27,8 +29,8 @@ body {
 }
 
 .menu-item {
-    border: 1px solid;
     margin-top: 30px;
+    color: #FFFFFF;
 }
 
 .menu-item .menu-subtitle {
@@ -45,3 +47,4 @@ body {
 .menu-page-price {
     font-size: 20px;
 }
+

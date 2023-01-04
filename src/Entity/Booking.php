@@ -19,7 +19,7 @@ class Booking
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeInterface $hour = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

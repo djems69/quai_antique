@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Booking;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -20,19 +21,23 @@ class BookingType extends AbstractType
             ->add('name', TextType::class, [
                 'label'=>'Nom'
                 ])
-            ->add('hour', TimeType::class, [
-                'label'=>'heure',
-                'input' => 'datetime',
-                'widget' => 'choice',
-                'hours' => [11, 12, 13, 18, 19, 20, 21],
-                'minutes' => [00, 15, 30, 45],
+                ->add('day', DateTimeType::class, [
+                    'placeholder' => [
+                        'day' => 'Jour',
+                        'month' => 'Mois',
+                        'year' => 'Année',
+                        'hour' => 'Heure',
+                        'minute' => 'Minutes'
+                    ],
                 ])
-            ->add('day', DateType::class, [
-                'label' => 'Date',
-                'widget' => 'single_text',
-                'html5' => true,
-                'format' => 'yyyy-MM-dd'
-                ])
+                /*->add('hour', TimeType::class, [
+                    'label'=>'heure',
+                    'input' => 'datetime',
+                    'widget' => 'choice',
+                    'hours' => [11, 12, 13, 18, 19, 20, 21],
+                    'minutes' => [00, 15, 30, 45],
+                    ])*/
+
             ->add('allergy', TextType::class, [
                 'label' => 'Allergies',
                 'attr' => [

@@ -5,10 +5,10 @@
 {% block content %}
     
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 text-white">
             <img src="/uploads/{{ menu.illustration }}" alt="{{ menu.name }}" class="img-fluid">
         </div>
-        <div class="col-md-7 my-auto">
+        <div class="col-md-7 my-auto text-white">
             <h3>{{ menu.name }}</h3>
             <p>{{ menu.subtitle }}</p>
             <span class="menu-page-price">{{ (menu.price / 100)|number_format(2, ',', '.') }} €</span>
@@ -17,8 +17,8 @@
         </div>
     </div>
     <hr>
-    <h3 class="text-center">Nos meilleures ventes</h3>
-    <p class="text-center">Découvrez les produits les plus vendus</p>
+    <h3 class="text-center text-white">Nos meilleures ventes</h3>
+    <p class="text-center text-white">Découvrez les produits les plus vendus</p>
     <div class="row">
         {% for menu in menus %}
             <div class="col-md-3">
