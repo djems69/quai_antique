@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes réservations}{% endblock %}
+
+{% block content %}
+    <div class="text-white text-center">
+        <h1>Mes Réservation</h1>
+
+        <p>Nom : {{ booking.name }}</p>
+        <p>Jour : {{ booking.day|date('d/m/Y') }}</p>
+        <p>Heure : {{ booking.hour|date('H:i') }}</p>
+        <p>Allergies : {{ booking.allergy }}</p>
+        <p>Nombre de personnes : {{ booking.seats }}</p>
+    </div>
+
+{% endblock %}

@@ -25,7 +25,6 @@ class BookingController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
 
-
         $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
         $form->handleRequest($request);
@@ -34,11 +33,22 @@ class BookingController extends AbstractController
             $this->entityManager->persist($booking);
             $this->entityManager->flush();
             $this->addFlash('success', 'Votre réservation a bien été envoyé');
-            return $this->redirectToRoute('account');
+            return
+
+            $response = $this->render('booking_show/index.html.twig', [
+                'booking' => $booking,
+            ]);
+
         }
 
         return $this->render('booking/index.html.twig', [
             'form' => $form
         ]);
+
     }
+
+
+
+
 }
+
