@@ -19,11 +19,11 @@ class Booking
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?\DateTimeInterface $hour = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?DateTimeInterface $hour = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $day = null;
+    private ?DateTimeInterface $day = null;
 
     #[ORM\Column(length: 255)]
     private ?string $allergy = null;
@@ -63,7 +63,7 @@ class Booking
         return $this->hour;
     }
 
-    public function setHour(DateTimeInterface $hour): self
+    public function setHour(\DateTimeInterface $hour): self
     {
         $this->hour = $hour;
 
@@ -141,4 +141,5 @@ class Booking
 
         return $this;
     }
+
 }

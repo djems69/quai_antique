@@ -12,31 +12,33 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\Security;
+
 
 class BookingType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        $email = $this->security->getUser()->getEmail();
         $builder
             ->add('name', TextType::class, [
-                'label'=>'Nom'
+                'label'=>'Mail',
+                /*'disabled'=>true,*/
+                'data'=>$email
                 ])
-                ->add('day', DateTimeType::class, [
-                    'placeholder' => [
-                        'day' => 'Jour',
-                        'month' => 'Mois',
-                        'year' => 'Année',
-                        'hour' => 'Heure',
-                        'minute' => 'Minutes'
-                    ],
+                ->add('day', DateType::class, [
+                    'label'=>'Jour',
+                    'widget' => 'single_text',
+                    'format' => 'yyyy-MM-dd',
+                    'model_timezone' => 'Europe/Paris',
                 ])
-                /*->add('hour', TimeType::class, [
+                ->add('hour', TimeType::class, [
                     'label'=>'heure',
                     'input' => 'datetime',
                     'widget' => 'choice',
                     'hours' => [11, 12, 13, 18, 19, 20, 21],
                     'minutes' => [00, 15, 30, 45],
-                    ])*/
+                    ])
 
             ->add('allergy', TextType::class, [
                 'label' => 'Allergies',
@@ -51,6 +53,14 @@ class BookingType extends AbstractType
             ->add('save', SubmitType::class, ['label' => 'Réserver'])
         ;
     }
+
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {
