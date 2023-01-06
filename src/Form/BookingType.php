@@ -29,14 +29,14 @@ class BookingType extends AbstractType
                 /*'disabled'=>true,*/
                 'data'=>$email
                 ])
-            ->add('name', EntityType::class, [
+            /*->add('name', EntityType::class, [
                 'class' => User::class,
                 'query_builder' => function (EntityRepository $user) {
                     return $user->createQueryBuilder('u')
                         ->orderBy('u.lastname', 'ASC');
                 },
                 'choice_label' => 'lastname',
-            ])
+            ])*/
                 ->add('day', DateType::class, [
                     'label'=>'Jour',
                     'widget' => 'single_text',

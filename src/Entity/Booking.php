@@ -19,13 +19,13 @@ class Booking
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?DateTimeInterface $hour = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?DateTimeInterface $day = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $allergy = null;
 
     #[ORM\Column]
@@ -70,12 +70,12 @@ class Booking
         return $this;
     }
 
-    public function getDay(): ?DateTimeInterface
+    public function getDay(): ?\DateTimeInterface
     {
         return $this->day;
     }
 
-    public function setDay(DateTimeInterface $day): self
+    public function setDay(\DateTimeInterface $day): self
     {
         $this->day = $day;
 
