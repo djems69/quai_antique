@@ -17,6 +17,7 @@ class BookingController extends AbstractController
     public function __construct(EntityManagerInterface $entityManager) {
         $this->entityManager = $entityManager;
 
+
     }
 
     #[Route('/reservation', name: 'app_booking')]
@@ -24,18 +25,23 @@ class BookingController extends AbstractController
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_REMEMBERED');
 
+        // Récupère l'objet utilisateur actuellement connecté
+        $user = $this->getUser();
+        // Récupère l'email de l'utilisateur
+        $email = $user->getEmail();
 
         $booking = new Booking();
         $form = $this->createForm(BookingType::class, $booking);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $booking = $form->getData();
+            $booking->setEmail($email);
             $this->entityManager->persist($booking);
             $this->entityManager->flush();
             $this->addFlash('success', 'Votre réservation a bien été envoyé');
             return
 
-            $response = $this->render('booking_show/index.html.twig', [
+              $this->redirectToRoute('booking_show', [
                 'booking' => $booking,
             ]);
 

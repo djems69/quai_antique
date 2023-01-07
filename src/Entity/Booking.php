@@ -16,13 +16,13 @@ class Booking
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?DateTimeInterface $hour = null;
 
-    #[ORM\Column(type: Types::TIME_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?DateTimeInterface $day = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -36,6 +36,9 @@ class Booking
 
     #[ORM\ManyToOne(inversedBy: 'bookings')]
     private ?Restaurant $Management = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $email = null;
 
 
 
@@ -70,12 +73,12 @@ class Booking
         return $this;
     }
 
-    public function getDay(): ?\DateTimeInterface
+    public function getDay(): ?DateTimeInterface
     {
         return $this->day;
     }
 
-    public function setDay(\DateTimeInterface $day): self
+    public function setDay(DateTimeInterface $day): self
     {
         $this->day = $day;
 
@@ -138,6 +141,18 @@ class Booking
     public function setManagement(?Restaurant $Management): self
     {
         $this->Management = $Management;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
