@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block footer %}
+    <footer>
+        <div class="container text-center text-white">
+            <p>Horaires d'ouverture déjeuner : {{ openingTime|date('H:i') }}</p>
+            <p>Horaires de fermeture déjeuner : {{ closingTime|date('H:i') }}</p>
+            <p>Horaires d'ouverture dîner : {{ openingTimeNoon|date('H:i') }}</p>
+            <p>Horaires de fermeture dîner : {{ closingTimeNoon|date('H:i') }}</p>
+        </div>
+    </footer>
+{% endblock %}
