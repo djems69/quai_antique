@@ -25,6 +25,8 @@ class RestaurantCrudController extends AbstractCrudController
             NumberField::new('capacity'),
             TimeField::new('Opening_Time'),
             TimeField::new('Closing_Time'),
+            TimeField::new('Opening_Time_Noon'),
+            TimeField::new('Closing_Time_Noon'),
             DateField::new('day'),
             TextField::new('days_of_the_week')
         ];

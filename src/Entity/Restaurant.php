@@ -40,6 +40,12 @@ class Restaurant
     #[ORM\Column(length: 255)]
     private ?string $days_of_the_week = null;
 
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $openingTimeNoon = null;
+
+    #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $closingTimeNoon = null;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
@@ -161,6 +167,30 @@ class Restaurant
                 $booking->setManagement(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOpeningTimeNoon(): ?\DateTimeInterface
+    {
+        return $this->openingTimeNoon;
+    }
+
+    public function setOpeningTimeNoon(?\DateTimeInterface $openingTimeNoon): self
+    {
+        $this->openingTimeNoon = $openingTimeNoon;
+
+        return $this;
+    }
+
+    public function getClosingTimeNoon(): ?\DateTimeInterface
+    {
+        return $this->closingTimeNoon;
+    }
+
+    public function setClosingTimeNoon(?\DateTimeInterface $closingTimeNoon): self
+    {
+        $this->closingTimeNoon = $closingTimeNoon;
 
         return $this;
     }

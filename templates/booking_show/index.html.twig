@@ -17,7 +17,8 @@
         <div class="border border-white text-center text-white">
             Date de réservation : {{ booking.day|date('d/m/Y') }}<br/>
             Heure de réservation : {{ booking.hour|date('H:i') }}<br/>
-            Nombre de personnes : {{ booking.seats }}
+            Nombre de personnes : {{ booking.seats }}<br/>
+            Allergies : {{ booking.allergy }}
         </div>
     {% endfor %}
     {% endif %}
