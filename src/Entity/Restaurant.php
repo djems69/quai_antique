@@ -16,11 +16,7 @@ class Restaurant
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $address = null;
 
     #[ORM\Column]
     private ?int $capacity = null;
@@ -34,11 +30,6 @@ class Restaurant
     #[ORM\OneToMany(mappedBy: 'Management', targetEntity: Booking::class)]
     private Collection $bookings;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $day = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $days_of_the_week = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $openingTimeNoon = null;
@@ -56,29 +47,6 @@ class Restaurant
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
 
     public function getCapacity(): ?int
     {
@@ -112,30 +80,6 @@ class Restaurant
     public function setClosingTime(\DateTimeInterface $closingTime): self
     {
         $this->closingTime = $closingTime;
-
-        return $this;
-    }
-
-    public function getDaysOfTheWeek(): ?string
-    {
-        return $this->days_of_the_week;
-    }
-
-    public function setDaysOfTheWeek(string $days_of_the_week): self
-    {
-        $this->days_of_the_week = $days_of_the_week;
-
-        return $this;
-    }
-
-    public function getDay(): ?\DateTimeInterface
-    {
-        return $this->day;
-    }
-
-    public function setDay(\DateTimeInterface $day): self
-    {
-        $this->day = $day;
 
         return $this;
     }

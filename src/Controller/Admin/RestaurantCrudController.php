@@ -20,15 +20,12 @@ class RestaurantCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            TextField::new('address'),
+
             NumberField::new('capacity'),
             TimeField::new('Opening_Time'),
             TimeField::new('Closing_Time'),
             TimeField::new('Opening_Time_Noon'),
-            TimeField::new('Closing_Time_Noon'),
-            DateField::new('day'),
-            TextField::new('days_of_the_week')
+            TimeField::new('Closing_Time_Noon')
         ];
     }
 }

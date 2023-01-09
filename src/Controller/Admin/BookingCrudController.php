@@ -18,16 +18,16 @@ class BookingCrudController extends AbstractCrudController
     }
 
 
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            EmailField::new('email'),
-            DateField::new('date'),
-            TimeField::new('hour'),
-            NumberField::new('seats'),
-            TextField::new('allergy')
-
-        ];
-    }
+    /* public function configureFields(string $pageName): iterable
+     {
+         retur/*[
+             EmailField::new('email'),
+             DateField::new('date'),
+             TimeField::new('hour'),
+             NumberField::new('seats'),
+             TextField::new('allergy')
+ 
+         ];
+    }*/
 
 }
