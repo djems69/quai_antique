@@ -26,7 +26,7 @@ class BookingCrudController extends AbstractCrudController
              TimeField::new('hour'),
              NumberField::new('seats'),
              TextField::new('allergy')
- 
+
          ];
     }*/
 
