@@ -46,6 +46,18 @@
         </nav>
     </header>
 
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            {% if type in ['success', 'danger','warning','info'] %}
+                <div class="container">
+                    <div class="alert alert-{{ type }} mt-5">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
     <main role="main">
 
         <link rel="stylesheet" href="{{ asset('assets/css/carousel.css') }}">
