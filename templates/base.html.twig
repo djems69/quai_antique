@@ -116,15 +116,9 @@
         </div><!-- /.container -->
 
         <!-- FOOTER -->
-       <!-- {% block footer %}
-        <footer class="footer-custom">
-            <p>&copy;2022 Quai Antique.<br>
-                <small>Le restaurant 100% gastronomique.<br>
-                    <a href="#">Privacy</a> &middot; <a href="#">Terms</a></small>
-            </p>
+        {% block footer %}
             {{ render(controller('App\\Controller\\FooterController::index')) }}
-        </footer>
-        {% endblock %}-->
+        {% endblock %}
     </main>
         {% block javascripts %}
             <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" type="text/javascript" />

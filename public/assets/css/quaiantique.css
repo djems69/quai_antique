@@ -1,20 +1,10 @@
 body {
-    position: relative;
     background: rgb(39,40,45);
     background: radial-gradient(circle, rgba(39,40,45,1) 0%, rgba(92,69,69,1) 100%);
 }
 
 .navbar-item-custom, .navbar-item-custom a {
     color: #fff;
-}
-
-.footer-custom {
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #dfeaff;
-    padding-top: 25px;
 }
 
 .menu-container {
