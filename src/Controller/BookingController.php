@@ -72,7 +72,7 @@ class BookingController extends AbstractController
                         // Enregistre l'objet Booking en base de données
                         $this->entityManager->persist($booking);
                         $this->entityManager->flush();
-                        $this->addFlash('success', 'Votre réservation a bien été envoyé');
+                        $this->addFlash('success', 'Votre réservation a bien été prise en compte');
                         return $this->redirectToRoute('account');
 
                     } else {
