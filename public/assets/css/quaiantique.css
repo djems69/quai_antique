@@ -5,6 +5,7 @@ body {
 
 .navbar-item-custom, .navbar-item-custom a {
     color: #fff;
+    text-decoration: none;
 }
 
 .menu-container {
@@ -48,4 +49,9 @@ body {
     font-size: 14px;
     color: #FFFFFF;
     font-weight: bold;
+    text-decoration: none;
+}
+
+.account-items a:hover {
+    color: antiquewhite;
 }
