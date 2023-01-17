@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous contacter - Quai Antique{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">Nous contacter</h2>
+    <p class="text-center">N'hésitez pas à prendre contact avec nous. Notre équipe vous répondra dans les plus brefs délais.</p>
+    <hr>
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+    <div class="row">
+        <div class="col-md-8">{{ form(form) }}</div>
+        <div class="col-md-4 text-center">
+            <strong>QUAI ANTIQUE</strong>
+            <hr>
+            08-36-65-65-65<br>
+            8 rue du lilas 74000 Haute savoie<br>
+            contact@quaiantique.fr
+        </div>
+    </div>
+{% endblock %}

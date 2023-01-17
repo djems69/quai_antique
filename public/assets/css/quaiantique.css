@@ -38,3 +38,14 @@ body {
     font-size: 20px;
 }
 
+.account-items {
+    background-color: #6c757d;
+    padding: 80px;
+}
+
+.account-items a {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: bold;
+}

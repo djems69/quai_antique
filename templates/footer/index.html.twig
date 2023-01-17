@@ -11,7 +11,7 @@
                 <div class="row mt-4">
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4">Quai Antique</h5>
+                        <h5 class="text-uppercase mb-4 text-center">Quai Antique</h5>
 
                         <p>
                             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
@@ -28,7 +28,28 @@
 
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4 pb-1">Nous Contacter</h5>
+                        <h5 class="text-uppercase mb-4 text-center">Horaires d'ouverture</h5>
+
+                        <table class="table text-center text-white">
+                            <tbody class="font-weight-normal">
+                            <p class="text-center">OUVERT TOUS LES JOURS</p>
+                            <tr>
+                                <td>MIDI</td>
+                                <td>{{ openingTime|date('H:i') }} - {{ closingTime|date('H:i') }} </td>
+                            </tr>
+                            <tr>
+                                <td>SOIR</td>
+                                <td>{{ openingTimeNoon|date('H:i') }} - {{ closingTimeNoon|date('H:i') }}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-4 pb-1 text-center">Nous Contacter</h5>
 
                         <ul class="fa-ul" style="margin-left: 1.65em;">
                             <li class="mb-3">
@@ -44,26 +65,6 @@
                     </div>
                     <!--Grid column-->
 
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4">Horaires d'ouverture</h5>
-
-                        <table class="table text-center text-white">
-                            <tbody class="font-weight-normal">
-                            <p>OUVERT TOUS LES JOURS</p>
-                            <tr>
-                                <td>MIDI</td>
-                                <td>{{ openingTime|date('H:i') }} - {{ closingTime|date('H:i') }} </td>
-                            </tr>
-                            <tr>
-                                <td>SOIR</td>
-                                <td>{{ openingTimeNoon|date('H:i') }} - {{ closingTimeNoon|date('H:i') }}</td>
-                            </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--Grid column-->
                 </div>
                 <!--Grid row-->
             </div>
