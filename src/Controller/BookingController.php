@@ -52,12 +52,6 @@ class BookingController extends AbstractController
             $hour = $booking->getHour();
             $seats = $booking->getSeats();
 
-            /*if ($day === null || $hour === null) {
-                // Si le jour ou l'heure sont null, affiche un message d'erreur
-                $this->addFlash('danger', 'Jour ou heure de réservation non valides');
-            } else {
-                // Récupère le nombre de places demandées*/
-
                 if ($seats <= 0) {
                     // Si le nombre de places est inférieur ou égal à zéro, affiche un message d'erreur
                     $this->addFlash('danger', 'Le nombre de places doit être supérieur à zéro');

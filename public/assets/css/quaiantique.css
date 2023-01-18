@@ -41,7 +41,8 @@ body {
 
 .account-items {
     background-color: #6c757d;
-    padding: 80px;
+    padding: 20px;
+    margin: 5px;
 }
 
 .account-items a {
