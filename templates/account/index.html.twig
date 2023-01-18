@@ -21,6 +21,14 @@
                     <a href="{{ path('booking_show') }}">Mes réservations</a>
                 </div>
             </div>
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="col-md-6">
+                <div class="account-items">
+                    <img src="{{ asset('assets/media/administrateur.png') }}" alt="Gérer mes réservations"><br>
+                    <a href="/admin">Administrateur</a>
+                </div>
+            </div>
+            {% endif %}
         </div>
     <br>
 
