@@ -70,21 +70,21 @@
                     <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>            </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active c-item">
-                        <img src="{{ asset('assets/media/test.jpg') }}" class="d-block w-100 c-img" alt="Slide 1">
+                        <img src="{{ asset('assets/media/restaurant1.jpg') }}" class="d-block w-100 c-img" alt="Slide 1">
                         <div class="carousel-caption top-0 mt-4">
                             <p class="mt-5 fs-3 text-uppercase">Découvrez les saveurs uniques de notre cuisine traditionnelle revisitée</p>
                             <h1 class="display-1 fw-bolder text-capitalize  ">Une cuisine raffinée, une expérience gastronomique</h1>
                         </div>
                     </div>
                     <div class="carousel-item c-item">
-                        <img src="{{ asset('assets/media/test.jpg') }}" class="d-block w-100 c-img" alt="Slide 2">
+                        <img src="{{ asset('assets/media/restaurant2.jpg') }}" class="d-block w-100 c-img" alt="Slide 2">
                         <div class="carousel-caption top-0 mt-4">
                             <p class="mt-5 fs-3 text-uppercase ">Venez vivre une soirée inoubliable dans notre cadre historique</p>
                             <h1 class="display-1 fw-bolder text-capitalize">Le charme d'antan, l'élégance d'aujourd'hui</h1>
                         </div>
                     </div>
                     <div class="carousel-item c-item">
-                        <img src="{{ asset('assets/media/test.jpg') }}" class="d-block w-100 c-img" alt="Slide 3">
+                        <img src="{{ asset('assets/media/restaurant3.jpg') }}" class="d-block w-100 c-img" alt="Slide 3">
                         <div class="carousel-caption top-0 mt-4">
                             <p class="mt-5 fs-3 text-uppercase">Venez découvrir nos plats haut de gamme tout en admirant la vue imprenable</p>
                             <h1 class="display-1 fw-bolder text-capitalize  ">Un panorama à couper le souffle, une cuisine délicieuse</h1>
@@ -100,7 +100,21 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+            <div class="d-flex justify-content-center mb-5">
+                <button id="redirect-button" class="btn btn-primary btn-lg">Reserver</button>
+            </div>
+
+
+            <script>
+                // Ajouter un écouteur d'événement "click" au bouton
+                document.getElementById("redirect-button").addEventListener("click", function() {
+                    // Rediriger vers le lien souhaité
+                    window.location.href = "/reservation";
+                });
+            </script>
     {% endif %}
+
+
         <!-- Marketing messaging and featurettes
         ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
