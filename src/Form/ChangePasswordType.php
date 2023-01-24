@@ -42,6 +42,10 @@ class ChangePasswordType extends AbstractType
                 'invalid_message'=>'Le mot de passe et la confirmation doivent etre identiques',
                 'label'=>'Mon nouveau mot de passe',
                 'required'=>true,
+                'constraints' => [
+                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                        "Il faut un mot de passe de 8 caractère avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial")
+                ],
                 'first_options'=> [
                     'label'=>'Mon nouveau mot de passe',
                     'attr'=> [

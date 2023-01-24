@@ -21,7 +21,7 @@ class RegisterType extends AbstractType
             ->add('firstname', TextType::class, [
                 'label'=>'Votre prenom',
                 'constraints'=> new Length([
-                    'min'=> 2,
+                    'min'=> 3,
                     'max'=> 30
                 ]),
                 'attr'=> [
@@ -31,7 +31,7 @@ class RegisterType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label'=>'Votre nom',
                 'constraints'=> new Length([
-                    'min'=> 2,
+                    'min'=> 3,
                     'max'=> 30
                 ]),
                 'attr'=> [
@@ -41,7 +41,7 @@ class RegisterType extends AbstractType
             ->add('email', EmailType::class, [
                 'label'=>'Votre email',
                 'constraints'=> new Length([
-                    'min'=> 2,
+                    'min'=> 3,
                     'max'=> 50
                 ]),
                 'attr'=> [
@@ -53,6 +53,10 @@ class RegisterType extends AbstractType
                 'invalid_message'=>'Le mot de passe et la confirmation doivent etre identiques',
                 'label'=>'Votre mot de passe',
                 'required'=>true,
+                'constraints' => [
+                    new Regex('/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                        "Il faut un mot de passe de 8 caractère avec 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial")
+                ],
                 'first_options'=> [
                     'label'=>'Mot de passe',
                     'attr'=> [
