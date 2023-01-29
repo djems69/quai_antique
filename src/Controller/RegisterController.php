@@ -24,25 +24,29 @@ class RegisterController extends AbstractController
 
     public function index(Request $request, UserPasswordHasherInterface $hasher): Response
     {
-
+        // Instanciation d'un objet de la classe User
         $user = new User();
+        // Création d'un formulaire à partir de la classe RegisterType et de l'objet $user
         $form = $this->createForm(RegisterType::class, $user);
-
+        // Gestion de la soumission du formulaire
         $form->handleRequest($request);
 
+        // Vérification de la validation du formulaire
         if($form->isSubmitted() && $form->isValid()) {
-
+            // Récupération des données du formulaire
             $user=$form->getData();
-
+            // Hachage du mot de passe de l'utilisateur
             $password = $hasher->hashPassword($user,$user->getPassword());
             $user->setPassword($password);
-
+            // Enregistrement de l'utilisateur en base de données
             $this->entityManager->persist($user);
             $this->entityManager->flush();
+            // Affichage d'un message de succès
             $this->addFlash('success', 'Votre compte a été créé avec succès !');
+            // Redirection vers la route "account"
             return $this->redirectToRoute('account');
         }
-
+        // Retourne la vue register/index.html.twig avec le formulaire créé
         return $this->render('register/index.html.twig', [
             'form'=>$form->createView()
         ]);

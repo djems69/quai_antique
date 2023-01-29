@@ -18,6 +18,8 @@ class FooterController extends AbstractController
         $restaurant = $entityManager
             ->getRepository(Restaurant::class)
             ->find(4);
+
+        // Envoi des informations sur les horaires d'ouverture et de fermeture à la vue
         return $this->render('footer/index.html.twig', [
             'openingTime' => $restaurant->getOpeningTime(),
             'closingTime' => $restaurant->getClosingTime(),
