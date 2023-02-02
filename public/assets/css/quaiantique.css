@@ -57,5 +57,23 @@ body {
     color: antiquewhite;
 }
 
+.text-animation {
+    position: relative;
+    animation: move-right 17s linear infinite;
+}
 
+@keyframes move-right {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.text-animation h2 {
+    color: #ff9b06;
+    font-family: 'Aguafina Script', cursive;
+    font-size: 30px;
+}
 
