@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Djems69">
+        <meta name="revisit-after" content="7 days">
+        <meta name="description" content="Quai Antique est un restaurant situé à Chambery qui propose une cuisine française authentique et de qualité.">
+        <meta name="keywords" content="restaurant, cuisine française, Chambery, Quai Antique, réservations">
+        <meta name="robots" content="index, follow">
         <title>{% block title %}Quai Antique{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -72,21 +77,21 @@
                     <div class="carousel-item active c-item">
                         <img src="{{ asset('assets/media/restaurant1.jpg') }}" class="d-block w-100 c-img" alt="Slide 1">
                         <div class="carousel-caption top-0 mt-4">
-                            <p class="mt-5 fs-3 text-uppercase">Découvrez les saveurs uniques de notre cuisine traditionnelle revisitée</p>
+                            <p class="mt-5 fs-4 text-uppercase">Découvrez les saveurs uniques de notre cuisine traditionnelle revisitée</p>
                             <h1 class="display-1 fw-bolder text-capitalize  ">Une cuisine raffinée, une expérience gastronomique</h1>
                         </div>
                     </div>
                     <div class="carousel-item c-item">
                         <img src="{{ asset('assets/media/restaurant2.jpg') }}" class="d-block w-100 c-img" alt="Slide 2">
                         <div class="carousel-caption top-0 mt-4">
-                            <p class="mt-5 fs-3 text-uppercase ">Venez vivre une soirée inoubliable dans notre cadre historique</p>
+                            <p class="mt-5 fs-4 text-uppercase">Venez vivre une soirée inoubliable dans notre cadre historique</p>
                             <h1 class="display-1 fw-bolder text-capitalize">Le charme d'antan, l'élégance d'aujourd'hui</h1>
                         </div>
                     </div>
                     <div class="carousel-item c-item">
                         <img src="{{ asset('assets/media/restaurant3.jpg') }}" class="d-block w-100 c-img" alt="Slide 3">
                         <div class="carousel-caption top-0 mt-4">
-                            <p class="mt-5 fs-3 text-uppercase">Venez découvrir nos plats haut de gamme tout en admirant la vue imprenable</p>
+                            <p class="mt-5 fs-4 text-uppercase">Venez découvrir nos plats haut de gamme tout en admirant la vue imprenable</p>
                             <h1 class="display-1 fw-bolder text-capitalize  ">Un panorama à couper le souffle, une cuisine délicieuse</h1>
                         </div>
                     </div>
@@ -113,6 +118,8 @@
                 });
             </script>
     {% endif %}
+
+        <hr>
 
 
         <!-- Marketing messaging and featurettes
