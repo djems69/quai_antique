@@ -23,15 +23,17 @@
     <div class="text-animation">
         <h2>Quai Antique</h2>
     </div>
+    <script>
+        const textElement = document.querySelector('.text-animation');
+        textElement.addEventListener('mouseover', function () {
+            textElement.style.animationPlayState = 'running';
+        });
+        textElement.addEventListener('mouseout', function () {
+            textElement.style.animationPlayState = 'paused';
+        });
+    </script>
 {% endblock %}
 
-{% block javascripts %}
-    const textElement = document.querySelector('.text-animation');
-    textElement.addEventListener('mouseover', function () {
-    textElement.style.animationPlayState = 'running';
-    });
-    textElement.addEventListener('mouseout', function () {
-    textElement.style.animationPlayState = 'paused';
-    });
-{% endblock %}
+
+
 

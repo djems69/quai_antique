@@ -21,13 +21,7 @@ class ContactController extends AbstractController
         # Si le formulaire a été soumis et est valide
         if($form->isSubmitted() && $form->isValid()) {
             # Ajout d'un message flash de succès
-            $this->addFlash('notice', 'Merci de nous avoir contacté! Notre équipe vous répondra dans les meilleurs délais.');
-
-            # Instanciation d'un objet Email
-            $mail = new Email();
-            # Envoi d'un email avec les informations fournies
-            $mail->send('contact@quaiantique.fr', 'Quai antique', 'Vous avez reçu une demande de contact');
-
+            $this->addFlash('success', 'Merci de nous avoir contacté! Notre équipe vous répondra dans les meilleurs délais.');
         }
 
         # Renvoi de la vue associée au formulaire
