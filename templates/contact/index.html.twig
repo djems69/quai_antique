@@ -24,11 +24,16 @@
         <h2>Quai Antique</h2>
     </div>
     <script>
+        // Sélection de l'élément avec la classe CSS "text-animation"
         const textElement = document.querySelector('.text-animation');
+        // Écouteur d'événement pour le survol de la souris
         textElement.addEventListener('mouseover', function () {
+            // Activation de l'animation lorsque la souris survole l'élément
             textElement.style.animationPlayState = 'running';
         });
+        // Écouteur d'événement pour la sortie de la souris
         textElement.addEventListener('mouseout', function () {
+            // Mise en pause de l'animation lorsque la souris quitte l'élément
             textElement.style.animationPlayState = 'paused';
         });
     </script>

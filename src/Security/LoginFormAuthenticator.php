@@ -19,18 +19,23 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
+    // Constante définissant la route de connexion
     public const LOGIN_ROUTE = 'app_login';
 
+    // Constructeur de la classe
     public function __construct(private readonly UrlGeneratorInterface $urlGenerator)
     {
     }
 
+    // Méthode pour authentifier l'utilisateur
     public function authenticate(Request $request): Passport
     {
+        // Récupération de l'email depuis la requête
         $email = $request->request->get('email', '');
-
+        // Stockage de l'email dans la session
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
+        // Création d'un objet Passport contenant les informations d'authentification
         return new Passport(
             new UserBadge($email),
             new PasswordCredentials($request->request->get('password', '')),
@@ -40,16 +45,19 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         );
     }
 
+    // Méthode appelée en cas de succès de l'authentification
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
+        // Vérification de l'existence d'une redirection cible
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-
+        // Redirection vers la page du compte utilisateur
         return new RedirectResponse($this->urlGenerator->generate('account'));
     }
 
+    // Méthode pour obtenir l'URL de la page de connexion
     protected function getLoginUrl(Request $request): string
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);

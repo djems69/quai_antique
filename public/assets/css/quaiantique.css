@@ -1,17 +1,21 @@
+/* Dégradé radial utilisé comme arrière-plan */
 body {
     background: rgb(39,40,45);
     background: radial-gradient(circle, rgba(39,40,45,1) 0%, rgba(92,69,69,1) 100%);
 }
 
+/* Style des éléments de la barre de navigation avec couleur et suppression du soulignement */
 .navbar-item-custom, .navbar-item-custom a {
     color: #fff;
     text-decoration: none;
 }
 
+/* Marge inférieure pour le conteneur du menu */
 .menu-container {
     margin-bottom: 150px;
 }
 
+/* Style des titres des éléments du menu avec transformation en majuscules, taille de police et marges */
 .menu-item h5{
     text-transform: uppercase;
     font-size: 15px;
@@ -19,32 +23,38 @@ body {
     margin-top: 5px;
 }
 
+/* Style des éléments du menu avec marge supérieure et couleur de texte */
 .menu-item {
     margin-top: 30px;
     color: #FFFFFF;
 }
 
+/* Style des sous-titres des éléments du menu avec taille de police, affichage en bloc et marge inférieure */
 .menu-item .menu-subtitle {
     font-size: 14px;
     display: block;
     margin-bottom: 10px;
 }
 
+/* Style des prix des éléments du menu avec taille de police et épaisseur de police */
 .menu-item .menu-price {
     font-size: 14px;
     font-weight: bold;
 }
 
+/* Style des prix sur la page du menu avec taille de police */
 .menu-page-price {
     font-size: 20px;
 }
 
+/* Style des éléments du compte utilisateur avec couleur de fond, rembourrage et marges */
 .account-items {
     background-color: #6c757d;
     padding: 20px;
     margin: 5px;
 }
 
+/* Style des liens dans les éléments du compte utilisateur avec transformation en majuscules, taille de police, couleur et suppression du soulignement */
 .account-items a {
     text-transform: uppercase;
     font-size: 14px;
@@ -53,15 +63,18 @@ body {
     text-decoration: none;
 }
 
+/* Style des liens au survol dans les éléments du compte utilisateur avec couleur */
 .account-items a:hover {
     color: antiquewhite;
 }
 
+/* Animation du texte avec déplacement vers la droite pendant 17 secondes en boucle */
 .text-animation {
     position: relative;
     animation: move-right 17s linear infinite;
 }
 
+/* Définition de l'animation avec déplacement du texte de gauche à droite */
 @keyframes move-right {
     from {
         transform: translateX(-100%);
@@ -71,6 +84,7 @@ body {
     }
 }
 
+/* Style du texte avec couleur, police personnalisée et taille de police */
 .text-animation h2 {
     color: #ff9b06;
     font-family: 'Aguafina Script', cursive;

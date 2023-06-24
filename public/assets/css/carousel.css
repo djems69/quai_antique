@@ -27,17 +27,19 @@ body {
 .carousel {
     margin-bottom: 4rem;
 }
-/* Since positioning the image, we need to help out the caption */
+/* Style pour la légende de la diapositive du carrousel */
 .carousel-caption {
     bottom: 3rem;
     z-index: 10;
 }
 
 
-/* Declare heights because of positioning of img element */
+/* Style pour les éléments de diapositive du carrousel */
 .carousel-item {
     height: 32rem;
 }
+
+/* Style pour les images des éléments de diapositive du carrousel */
 .carousel-item > img {
     position: absolute;
     top: 0;
@@ -50,14 +52,18 @@ body {
 /* MARKETING CONTENT
 -------------------------------------------------- */
 
-/* Center align the text within the three columns below the carousel */
+/* Centrer le texte dans les trois colonnes sous le carrousel */
 .marketing .col-lg-4 {
     margin-bottom: 1.5rem;
     text-align: center;
 }
+
+/* Style pour les titres h2 dans la section "marketing" */
 .marketing h2 {
     font-weight: 400;
 }
+
+/* Style pour les paragraphes dans les colonnes de classe "col-lg-4" de la section "marketing" */
 .marketing .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;
@@ -67,11 +73,12 @@ body {
 /* Featurettes
 ------------------------- */
 
+/* Style pour l'élément avec la classe "featurette-divider" */
 .featurette-divider {
-    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0;
 }
 
-/* Thin out the marketing headings */
+/* Style pour l'élément avec la classe "featurette-heading" */
 .featurette-heading {
     font-weight: 300;
     line-height: 1;
@@ -84,7 +91,6 @@ body {
 -------------------------------------------------- */
 
 @media (min-width: 40em) {
-    /* Bump up size of carousel content */
     .carousel-caption p {
         margin-bottom: 1.25rem;
         font-size: 1.25rem;
@@ -96,21 +102,30 @@ body {
     }
 }
 
+/* Media query pour les écrans avec une largeur minimale de 40em */
 @media (min-width: 62em) {
+    /* Style pour les paragraphes à l'intérieur des éléments avec la classe "carousel-caption" */
     .featurette-heading {
         margin-top: 7rem;
     }
 }
 
 .bd-placeholder-img {
+    /* Définit la taille de la police */
     font-size: 1.125rem;
+    /* Aligne le texte au centre horizontalement */
     text-anchor: middle;
+    /* Désactive la sélection du texte pour WebKit */
     -webkit-user-select: none;
+    /* Désactive la sélection du texte pour Firefox */
     -moz-user-select: none;
+    /* Désactive la sélection du texte pour Internet Explorer */
     -ms-user-select: none;
+    /* Désactive la sélection du texte pour les autres navigateurs */
     user-select: none;
 }
 
+/* Media query pour les écrans avec une largeur minimale de 768px */
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {
         font-size: 3.5rem;

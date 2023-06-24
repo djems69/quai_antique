@@ -32,10 +32,13 @@ class BookingController extends AbstractController
         $user = $this->getUser();
         // Récupère l'email de l'utilisateur
         $email = $user->getEmail();
-        // Récupération du restaurant
+        // Création d'une nouvelle instance de la classe Booking
         $booking = new Booking();
+        // Création du formulaire en utilisant la classe BookingType et l'objet $booking comme données
         $form = $this->createForm(BookingType::class, $booking);
+        // Traitement de la requête HTTP avec le formulaire
         $form->handleRequest($request);
+        // Vérification si le formulaire a été soumis et est valide
         if ($form->isSubmitted() && $form->isValid()) {
             // Récupère l'objet Restaurant associé à la réservation
             $restaurant = $this->entityManager
@@ -66,16 +69,18 @@ class BookingController extends AbstractController
                         // Enregistre l'objet Booking en base de données
                         $this->entityManager->persist($booking);
                         $this->entityManager->flush();
+                        // Ajout d'un message flash de succès avec le texte "Votre réservation a bien été prise en compte !"
                         $this->addFlash('success', 'Votre réservation a bien été prise en compte !');
+                        // Redirection vers la route "account"
                         return $this->redirectToRoute('account');
-
+                    // Ajout d'un message flash d'erreur avec le texte "Il n'y a pas assez de places disponibles pour votre réservation."
                     } else {
                         $this->addFlash('danger', 'Il n\'y a pas assez de places disponibles pour votre réservation.');
                     }
                 }
             }
 
-
+        // Rendu de la vue Twig 'booking/index.html.twig' en passant le formulaire comme variable 'form'
         return $this->render('booking/index.html.twig', [
             'form' => $form
         ]);

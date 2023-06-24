@@ -13,15 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegisterController extends AbstractController
 {
-
+    // Déclaration de la propriété privée $entityManager
     private $entityManager;
 
+    // Constructeur de la classe qui reçoit une instance de l'interface EntityManagerInterface et l'assigne à la propriété $entityManager
     public function __construct(EntityManagerInterface $entityManager) {
         $this->entityManager = $entityManager;
     }
 
+    // Définition de la route '/inscription' avec le nom 'register'
     #[Route('/inscription', name: 'register')]
-
+    // Méthode index qui correspond à la route '/inscription' et prend en paramètre un objet Request et une instance de l'interface UserPasswordHasherInterface
     public function index(Request $request, UserPasswordHasherInterface $hasher): Response
     {
         // Instanciation d'un objet de la classe User
