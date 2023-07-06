@@ -18,9 +18,8 @@
             <link href="https://fonts.googleapis.com/css2?family=Aguafina+Script&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('assets/css/quaiantique.css') }}"
         {% endblock %}
-
-
     </head>
+
     <body>
     <header>
         <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
@@ -120,12 +119,9 @@
     {% endif %}
 
         <hr>
-
-
         <!-- Marketing messaging and featurettes
         ================================================== -->
         <!-- Wrap the rest of the page in another container to center all the content. -->
-
         <div class="container marketing {% if block ('carousel') is not defined %}mt-5{% endif %}">
 
             {% block content %}

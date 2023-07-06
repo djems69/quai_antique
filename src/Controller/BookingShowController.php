@@ -41,10 +41,4 @@ class BookingShowController extends AbstractController
             'bookings' => $bookings
         ]);
     }
-
-
-
-
-
-
 }

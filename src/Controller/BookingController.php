@@ -103,7 +103,6 @@ class BookingController extends AbstractController
         // Renvoie le nombre de places disponibles en soustrayant le nombre de places prises au nombre total de places
         return $restaurant->getCapacity() - $takenSeats;
 
-
     }
 }
 
